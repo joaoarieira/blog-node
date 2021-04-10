@@ -29,7 +29,7 @@ function validateBlogId(request, response, next){
 
 app.use(logRequests);
 app.use('/blogs/:id', validateBlogId);
-const blogs = [{"id": "1", "title": "Title lorem ipsum", "snippet": "Snippet lorem ipsum", "text": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium est ducimus dicta recusandae harum neque maxime ullam omnis facere blanditiis dolorem quisquam inventore amet, delectus possimus sapiente veniam voluptas eligendi voluptatem illum? Vitae est dicta perferendis quod inventore officiis similique."}];
+const blogs = [{"id": "513eb15b-5975-4188-8dc7-754e2325c59c", "title": "Title lorem ipsum", "snippet": "Snippet lorem ipsum", "text": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium est ducimus dicta recusandae harum neque maxime ullam omnis facere blanditiis dolorem quisquam inventore amet, delectus possimus sapiente veniam voluptas eligendi voluptatem illum? Vitae est dicta perferendis quod inventore officiis similique."}];
 
 app.get('/blogs', (request, response) => {
     const { title } = request.query;
@@ -80,7 +80,7 @@ app.put('/blogs/:id', validateBlogId ,(request, response) => {
 app.delete('/blogs/:id', (request, response) => {
     const { id } = request.params;
 
-    const blogIndex = blog.findIndex(blog => blog.id === id);
+    const blogIndex = blogs.findIndex(blog => blog.id === id);
 
     if(blogIndex < 0){
         return response.status(400).json({error: 'Blog not found.'});
